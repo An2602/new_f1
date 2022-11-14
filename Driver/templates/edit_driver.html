@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<div class="card">
+    <img style="width:230px;height:200px" src="{% static '/images/' %}{{ driver.image }}" class="card-img-center"
+        alt="...">
+        <form action="{% url 'Driver:edit' driver.id %}" method="POST">
+            {% csrf_token %}
+            Name: <input type="text" value="{{ driver.name }}" name="name">
+            <br>
+            Score: <input type="number" value="{{ driver.score }}" name="score">
+            <br>
+            <input type="submit" value="save driver">
+        
+        </form>
+</div>
+
+
+
+{% endblock%}

@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+  {% for driver in driver_list %}    
+  <div class="col">
+    <div class="card">
+      <a href="{% url 'Driver:single' driver.id %}">
+          <img style="width:235px;height:200px" src="{% static '/images/' %}{{ driver.image }}" class="card-img-top" alt="...">
+        </a>
+      <div class="card-body">
+        <h4 class="card-title">{{ driver.name}}</h4>
+        <h6 class="card-text"> {{ driver.country }} </h6>
+        <h6 class="card-text"> {{ driver.car.name }}  &nbsp;&nbsp;&nbsp;&nbsp;
+           <a href="{% url 'Driver:edit' driver.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
+            <a href="{% url 'Driver:delete' driver.id %}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a> </h6>
+        <p class="card-text"> Standing: {{ driver.standing }} Score: {{ driver.score }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock%}

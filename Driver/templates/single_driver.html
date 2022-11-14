@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="card">
+    <img style="width:230px;height:200px" src="{% static '/images/' %}{{ driver.image }}" class="card-img-center"
+        alt="...">
+    <div class="card-body">
+        <h4 class="card-title">{{ driver.name}}</h4>
+        <h6 class="card-text"> {{ driver.country }} </h6>
+        <h6 class="card-text"> {{ driver.car.name }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{% url 'Driver:edit' driver.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a> </h6>
+        <p class="card-text"> Standing: {{ driver.standing }} Score: {{ driver.score }}</p>
+    </div>
+</div>
+
+
+
+    {% endblock%}
