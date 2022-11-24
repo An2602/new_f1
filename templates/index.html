@@ -41,6 +41,7 @@
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if user.is_authenticated %}
         <li><span>Hello {{ user.username }}! &nbsp;</span>
+        <img height="50px" src="{% static 'images/' %}{{ user.userprofile.image }}">
         <li><a href="{% url 'logout' %}">Log Out</a>
             {% else %}
         <li><a href="{% url 'register' %}">Register</a>
@@ -51,13 +52,13 @@
 
             </div>
             <div class="w3-col s3">
-                <a href="/Driver" class="w3-button w3-block w3-black">HomePage</a>
+                <a href="/Driver" class="w3-button w3-block w3-black">Homepage</a>
             </div>
             <div class="w3-col s3">
                 <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
             </div>
             <div class="w3-col s3">
-                <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+                <a href="/Race/all_races" class="w3-button w3-block w3-black">All races</a>
             </div>
         </div>
     </div>

@@ -28,7 +28,6 @@ urlpatterns = [
     path('Car/', include('Car.urls')),
     path('Driver/', include('Driver.urls')),
     path('Race/', include('Race.urls')),
-    path('Standing/', include('Standing.urls')),
     path('',homepage),
     path('accounts/', include('django.contrib.auth.urls')),
     path('login/', mylogin.mylogin, name='mylogin'),

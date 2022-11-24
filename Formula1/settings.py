@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'Car',
     'Driver',
     'Race',
-    'Standing',
+    'userprofile'
 ]
 
 MIDDLEWARE = [

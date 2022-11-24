@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+  {% for standing_race in standing_list %}   
+  <div class="col"> 
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"> {{ standing_race.standing }} . {{ standing_race.driver }} </h4>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock%}
