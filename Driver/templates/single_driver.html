@@ -1,8 +1,7 @@
 {% extends "index.html" %}
 {% load static %}
-{% block content %}
 
-
+{% block words %}
 <div class="card">
     <img style="width:230px;height:200px" src="{% static '/images/' %}{{ driver.image }}" class="card-img-center"
         alt="...">
@@ -13,6 +12,11 @@
         <p class="card-text"> Standing: {{ driver.standing }} Score: {{ driver.score }}</p>
     </div>
 </div>
+
+{% endblock%}
+{% block content %}
+
+
 
 
 

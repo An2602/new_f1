@@ -22,7 +22,7 @@
             background-position: center;
             background-size: cover;
             background-image: url("/static/images/homepage\ image.jpg");
-            min-height: 75%;
+            min-height: 100%;
         }
 
         .menu {
@@ -41,7 +41,7 @@
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if user.is_authenticated %}
         <li><span>Hello {{ user.username }}! &nbsp;</span>
-        <img height="50px" src="{% static 'images/' %}{{ user.userprofile.image }}">
+        <img height="20px" src="{% static 'images/' %}{{ user.userprofile.image }}">
         <li><a href="{% url 'logout' %}">Log Out</a>
             {% else %}
         <li><a href="{% url 'register' %}">Register</a>
@@ -52,10 +52,10 @@
 
             </div>
             <div class="w3-col s3">
-                <a href="/Driver" class="w3-button w3-block w3-black">Homepage</a>
+                <a href="/Driver" class="w3-button w3-block w3-black">Our drivers</a>
             </div>
             <div class="w3-col s3">
-                <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+                <a href="/Driver/driver_standing" class="w3-button w3-block w3-black">Driver standing</a>
             </div>
             <div class="w3-col s3">
                 <a href="/Race/all_races" class="w3-button w3-block w3-black">All races</a>
@@ -63,16 +63,18 @@
         </div>
     </div>
 
-
+   
     <!-- Header with image -->
-    <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    {% block title %}<header class="bgimg w3-display-container w3-grayscale-min" id="home">
         <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
         </div>
         <div class="w3-display-middle w3-center">
-            <span class="w3-text-white" style="font-size:90px">Welcome To<br>F1 Website</span>
+            {% block words %}<span class="w3-text-white" style="font-size:90px">Welcome To<br>F1 Website<br>please log in</span>{% endblock %}
         </div>
 
-    </header>
+    </header>{% endblock %}
+    
+    
 
 
     {% if messages %}
@@ -82,7 +84,6 @@
             {% endfor %}
     </ul>
     {% endif %}
-    {% block title %} {% endblock %}
 </body>
 
 </html>

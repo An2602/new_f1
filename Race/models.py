@@ -30,5 +30,5 @@ class Standing_in_race(models.Model):
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
     standing = models.SmallIntegerField(null=False)
 
-    def __str__(self):
-        return self.driver.name, self.race.race_name, "standing: "  + str(self.standing)
+    # def __str__(self):
+    #     return self.driver.name, self.race.race_name, "standing: "  + str(self.standing)

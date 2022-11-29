@@ -18,7 +18,7 @@
             background-position: center;
             background-size: cover;
             background-image: url("/static/images/homepage\ image.jpg");
-            min-height: 75%;
+            min-height: 100%;
         }
 
         .menu {
@@ -33,18 +33,17 @@
     <div class="w3-top">
         <div class="w3-row w3-padding w3-black">
             <div class="w3-col s3">
-                <form action="{%url 'register' %}" method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Register">
-                </form>
+               
 
             </div>
             <div class="w3-col s3">
-                <a href="/Driver/" class="w3-button w3-block w3-black">Homepage</a>
+                <a href="/" class="w3-button w3-block w3-black">Log in</a>
             </div>
             <div class="w3-col s3">
-                <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+                <a href="/Driver/" class="w3-button w3-block w3-black">Our drivers</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="/Driver/driver_standing" class="w3-button w3-block w3-black">Driver standing</a>
             </div>
             <div class="w3-col s3">
                 <a href="/Race/all_races" class="w3-button w3-block w3-black">All races</a>
@@ -58,7 +57,11 @@
         <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
         </div>
         <div class="w3-display-middle w3-center">
-            <span class="w3-text-white" style="font-size:90px">Welcome To<br>F1 Website</span>
+            <form action="{%url 'register' %}" method="POST" style="background-color: white;">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Register">
+            </form>
         </div>
 
     </header>
@@ -71,7 +74,6 @@
             {% endfor %}
     </ul>
     {% endif %}
-    {% block title %} {% endblock %}
 </body>
 
 </html>

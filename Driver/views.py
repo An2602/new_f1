@@ -36,3 +36,12 @@ def delete_driver(request, pk):
     driver = Driver.objects.get(id=pk)
     driver.delete()
     return redirect('Driver:Driver')
+
+@login_required(login_url="mylogin")
+def driver_standing(request):
+    all_drivers= Driver.objects.all().order_by('-score').values()
+    context = {
+        'driver_standing': all_drivers,
+    }
+    return render(request, 'standing.html', context=context)
+
