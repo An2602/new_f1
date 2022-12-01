@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block words %}
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    </div>
+    <div class="w3-display-middle w3-center">
+        <form action="{% url 'races:add_race_action' %}" method="POST" enctype="multipart/form-data" style="background-color: white;"">
+            {% csrf_token %}
+            <table>
+            {{ raceform.as_table }}
+            </table>
+            <input type="submit">
+        </form>
+    </div>
+
+</header>
+{% endblock %}
+{% block content %}
+
+
+
+{% endblock %}
