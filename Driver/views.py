@@ -39,7 +39,7 @@ def delete_driver(request, pk):
 
 @login_required(login_url="mylogin")
 def driver_standing(request):
-    all_drivers= Driver.objects.all().order_by('-score').values()
+    all_drivers= Driver.objects.all().order_by('-score')
     context = {
         'driver_standing': all_drivers,
     }

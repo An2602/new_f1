@@ -18,7 +18,7 @@
       </thead>
       <tbody>{% for driver in driver_standing %}
         <tr class="table-danger">
-          <th scope="row"> {{driver.standing }}</th>
+          <th scope="row"> {{ forloop.counter }} </th>
           <td>{{ driver.name}}</td>
           <td>{{ driver.country }}</td>
           <td>{{ driver.car.name }}</td>

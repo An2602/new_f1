@@ -15,10 +15,10 @@
       <div class="card-body">
         <h4 class="card-title">{{ driver.name}}</h4>
         <h6 class="card-text"> {{ driver.country }} </h6>
-        <h6 class="card-text"> {{ driver.car.name }}  &nbsp;&nbsp;&nbsp;&nbsp;
-           <a href="{% url 'Driver:edit' driver.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
-            <a href="{% url 'Driver:delete' driver.id %}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a> </h6>
-        <p class="card-text"> Standing: {{ driver.standing }} Score: {{ driver.score }}</p>
+        <h6 class="card-text"> {{ driver.car.name }}  &nbsp;&nbsp;&nbsp;&nbsp; </h6>
+        <p class="card-text"> Score: {{ driver.score }}</p>
+        <a href="{% url 'Driver:edit' driver.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a>
+            <a href="{% url 'Driver:delete' driver.id %}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Delete</a>
       </div>
     </div>
   </div>

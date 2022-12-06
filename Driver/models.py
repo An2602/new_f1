@@ -16,12 +16,14 @@ class Driver(models.Model):
    country = models.CharField(max_length=100, null=False)
    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="drivers")
    score = models.SmallIntegerField(null=False)
-   standing = models.SmallIntegerField(null=False)
    created_time=models.DateTimeField(auto_now_add=True)
    updated_time=models.DateTimeField(auto_now=True)
    image = models.ImageField(null=True, blank=True, default='/placeholder.png')
 
    def __str__(self):
         return self.name 
+    
+   def team_score(self):
+        self.name_set.all()
 
       #   + ", score: " + self.score

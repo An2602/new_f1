@@ -81,30 +81,6 @@ def add_standings_action(request):
         }
         return render(request, 'addstandings.html', context)
 
-
-
-
-
-# def get_race_standing(request, pk):
-#     race = Race.objects.get(id=pk)
-#     drivers = Driver.objects.all()
-#     return render(request,{'race':race,'drivers':drivers})
-
-# def save_race_standing(request,pk):
-#     race = Race.objects.get(id=pk)
-#     save_standing(request, "firstplace")
-#     save_standing(request, "secondplace")
-#     save_standing(request, "thirdplace")
-#     save_standing(request, "fourthplace")
-    
-
-# def save_standing(place, request, race):
-#     number1=request.POST.get("cars1")
-#     driver = Driver.get(id=number1)
-#     standing = Standing_in_race(race=race,driver=driver)
-#     standing.save()
-
-
     
 
 

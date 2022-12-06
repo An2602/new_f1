@@ -8,16 +8,14 @@
 <h6><a href=/Race/add_race class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add new race</a>
   <a href=/Race/add_standings class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Add Standings</a></h6>
 
-<div class="row row-cols-1 row-cols-md-5 g-4">
-  {% for standing_race in standing_list %}   
-  <div class="col"> 
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title"> {{ standing_race.standing }} . {{ standing_race.driver }}  </h4> 
+  <div class="row row-cols-1 row-cols-md-6 g-2">
+    {% for standing_race in standing_list %}    
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h8 class="card-title">{{ standing_race.standing}}.  {{ standing_race.driver }}</h8>
+        </div>
+      </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
-{% endblock%}
-
-
