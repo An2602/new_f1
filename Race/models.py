@@ -23,7 +23,7 @@ class Race(models.Model):
     updated_time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.race_name} - {self.race_type}"
+        return f"{self.race_name}"
 
 class Standing_in_race(models.Model):
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
@@ -31,4 +31,4 @@ class Standing_in_race(models.Model):
     standing = models.SmallIntegerField(null=False)
 
     def __str__(self):
-        return f"{self.driver.name} + {self.race.race_name} +standing:  {self.standing}"
+        return f"{self.driver.name}"

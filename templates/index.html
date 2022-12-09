@@ -21,7 +21,7 @@
         .bgimg {
             background-position: center;
             background-size: cover;
-            background-image: url("/static/images/homepage\ image.jpg");
+            background-image: url("/static/images/newhome.jpg");
             min-height: 100%;
         }
 
@@ -51,17 +51,18 @@
     <!-- end login register-->
 
             </div>
+            {% block headers %} 
             <div class="w3-col s3">
                 <a href="/Driver" class="w3-button w3-block w3-black">Our drivers</a>
             </div>
             <div class="w3-col s3">
                 <a href="/Driver/driver_standing" class="w3-button w3-block w3-black">Driver standing</a>
             </div>
-            <div class="w3-col s3">
+           <div class="w3-col s3">
                 <a href="/Race/all_races" class="w3-button w3-block w3-black">All races</a>
             </div>
         </div>
-    </div>
+    </div>{% endblock %}
 
    
     <!-- Header with image -->
@@ -69,7 +70,7 @@
         <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
         </div>
         <div class="w3-display-middle w3-center">
-            {% block words %}<span class="w3-text-white" style="font-size:90px">Welcome To<br>F1 Website</span>{% endblock %}
+            {% block words %}<span class="w3-text-black" style="font-size:60px"><br><br><br><br> <b> Welcome To F1 Website</b></span>{% endblock %}
         </div>
 
     </header>{% endblock %}
