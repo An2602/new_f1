@@ -22,8 +22,6 @@ class Driver(models.Model):
 
    def __str__(self):
         return self.name 
-    
-   def team_score(self):
-        self.name_set.all()
+
 
       #   + ", score: " + self.score

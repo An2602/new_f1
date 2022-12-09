@@ -1,18 +1,21 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from Driver.models import Driver
 from Race.models import Race, Standing_in_race
 from Race.forms import RaceForm, StandingForm
 from Race.models import Standing_in_race
 from django.contrib.auth.decorators import login_required
- 
+
+
 @login_required(login_url="mylogin")
 def standing_in_races(request):
-    standing_by_race= Standing_in_race.objects.all()
-    context = {
-        'standing_list': standing_by_race,
-    }
-    return render(request, 'races.html', context=context)
+    races = {}
+    st = Standing_in_race.objects.all().order_by('standing')
+    for standing in st:
+        if not races.get(standing.race_id):
+            races[standing.race_id] = [standing.race]
+        races[standing.race_id].append(standing)
+    return render(request, "races.html", {'races':races.values()})
+    
 
 
 # @login_required(login_url="mylogin")
@@ -54,7 +57,7 @@ def add_race_action(request):
 
 def update_driver_score(standing):
     regular_dic = {1:25, 2:18, 3:15, 4:12, 5:10, 6:8, 7:6, 8:4, 9:2, 10:1}
-    sprint_dic = {0:8, 1:7, 2:6, 3:5, 4:4, 5:3, 6:2, 7:1}
+    sprint_dic = {1:8, 2:7, 3:6, 4:5, 5:4, 6:3, 7:2, 8:1}
     driver = standing.driver
     race = standing.race
     if race.race_type == Race.Race_type.regular:
@@ -62,6 +65,7 @@ def update_driver_score(standing):
     elif race.race_type == Race.Race_type.sprint:
         driver.score += sprint_dic.get(standing.standing)
     driver.save()       
+
         
 def add_standings(request):
     context = {

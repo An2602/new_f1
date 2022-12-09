@@ -8,8 +8,9 @@
     <div class="card-body">
         <h4 class="card-title">{{ driver.name}}</h4>
         <h6 class="card-text"> {{ driver.country }} </h6>
-        <h6 class="card-text"> {{ driver.car.name }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{% url 'Driver:edit' driver.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a> </h6>
-        <p class="card-text"> Standing: {{ driver.standing }} Score: {{ driver.score }}</p>
+        <h6 class="card-text"> {{ driver.car.name }} &nbsp;&nbsp;
+            {% if request.user.is_staff %} <a href="{% url 'Driver:edit' driver.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Edit</a> {% endif %} </h6>
+        <p class="card-text"> Score: {{ driver.score }}</p>
     </div>
 </div>
 

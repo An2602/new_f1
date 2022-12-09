@@ -11,9 +11,9 @@ class Car(models.Model):
         return self.name + str(self.drivers.all())
         #   + ", score: " + self.score + str(self.drivers.all())
 
-  #  def team_score(self):
-  #       self.drivers_set.all()
-
-
-
-   
+   def team_scores(self):
+        team_score = 0
+        drivers = self.drivers.all()
+        for driver in drivers:
+            team_score += driver.score
+        return team_score
